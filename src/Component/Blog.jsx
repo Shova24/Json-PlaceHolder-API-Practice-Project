@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const { Title, Text } = Typography;
 export default function Blog({ blog, name }) {
-  console.log(name);
+  // console.log(name);
   return (
     <Card style={{ borderRadius: "25px", height: "200px" }}>
       <Title
