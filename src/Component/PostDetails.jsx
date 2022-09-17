@@ -25,13 +25,12 @@ export default function PostDetails({ name }) {
     <>
       <Card>
         <Row justify="center">
-          <Col>
-            <Title level={4}>{item?.title}</Title>
-          </Col>
-          <Col>
-            <Text>{item?.body}</Text>
-          </Col>
+          <Title level={4}>{item?.title}</Title>
         </Row>
+        <Row justify="center">
+          <Text>{item?.body}</Text>
+        </Row>
+
         <Row justify="end">
           <Text>Written by ~ {user.name}</Text>
         </Row>
