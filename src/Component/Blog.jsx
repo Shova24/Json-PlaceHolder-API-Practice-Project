@@ -3,7 +3,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const { Title, Text } = Typography;
-export default function Blog({ blog }) {
+export default function Blog({ blog, name }) {
+  console.log(name);
   return (
     <Card style={{ borderRadius: "25px", height: "200px" }}>
       <Title
@@ -19,7 +20,7 @@ export default function Blog({ blog }) {
       >
         {blog.body}
       </Title>
-      <Divider>By : {blog.userId}</Divider>
+      <Divider>By {name}</Divider>
       <Row justify="end">
         <Link to={`/${blog.id}`}>
           <Button shape="round">View Details</Button>

@@ -19,7 +19,6 @@ const { TextArea } = Input;
 const { Title, Text } = Typography;
 export default function HeaderComponent() {
   const { blog, setBlog } = useContext(jsonContext);
-  console.log(blog);
 
   return (
     <>
@@ -46,17 +45,6 @@ export default function HeaderComponent() {
           </Menu.Item>
         </Menu>
       </Row>
-
-      {/* <InputField />
-      <Row>
-        {blog.map((el) => (
-          <>
-            <Col lg={8} md={12} xs={24}>
-              <Blog key={el.id} blog={el} />
-            </Col>
-          </>
-        ))}
-      </Row> */}
     </>
   );
 }

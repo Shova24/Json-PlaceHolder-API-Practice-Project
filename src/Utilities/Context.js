@@ -12,8 +12,19 @@ export const JsonProvider = ({ children }) => {
       .then((data) => setBlog(data));
   };
 
+  const [users, setUsers] = useState([]);
+  const getUsers = () => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((data) => setUsers(data));
+  };
+  useEffect(() => {
+    getBlogs();
+    getUsers();
+  }, []);
+
   return (
-    <jsonContext.Provider value={{ blog, setBlog, getBlogs }}>
+    <jsonContext.Provider value={{ blog, users }}>
       {children}
     </jsonContext.Provider>
   );

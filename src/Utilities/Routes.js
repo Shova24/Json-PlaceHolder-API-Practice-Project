@@ -1,7 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import Blogs from "../Component/Blogs";
-import HeaderComponent from "../Component/HeaderComponent";
 import PostDetails from "../Component/PostDetails";
 import UserDetails from "../Component/UserDetails";
 import UserList from "../Component/UserList";
