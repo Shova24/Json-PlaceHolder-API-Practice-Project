@@ -1,20 +1,29 @@
 import { Card, Typography, Divider, Row, Button } from "antd";
 import React from "react";
+import { Link } from "react-router-dom";
 
 const { Title, Text } = Typography;
 export default function Blog({ blog }) {
-  console.log(blog);
   return (
     <Card style={{ borderRadius: "25px", height: "200px" }}>
       <Title
         level={4}
-        style={{ color: "teal", height: "80px", overflowY: "scroll" }}
+        style={{
+          color: "teal",
+          height: "30px",
+          width: "100%",
+          whiteSpace: "nowrap",
+          overflow: "hidden",
+          texOverflow: "ellipsis",
+        }}
       >
-        {blog.title}
+        {blog.body}
       </Title>
       <Divider>By : {blog.userId}</Divider>
       <Row justify="end">
-        <Button shape="round">View Details</Button>
+        <Link to={`/${blog.id}`}>
+          <Button shape="round">View Details</Button>
+        </Link>
       </Row>
     </Card>
   );
