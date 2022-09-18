@@ -2,35 +2,18 @@ import { Button, Card, Col, Form, Input, Row } from "antd";
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import jsonContext from "../Utilities/Context";
-
 const { TextArea } = Input;
-export default function InputField() {
+export default function UpdateInputField() {
   const { userId } = useParams();
   const { blog } = useContext(jsonContext);
   console.log(userId);
   const [form] = Form.useForm();
-  const addBlog = (values) => {
-    const newBlog = {
-      userId: userId,
-      id: blog.length + 1,
-      title: values.title,
-      body: values.body,
-    };
-    console.log(newBlog);
-  };
-
-  const editBlog = () => {
+  const updateBlog = () => {
     form.setFieldsValue = {
       title: "set something meaningless",
       body: "set something meaningless",
     };
     console.log("edit  : ", form);
-  };
-
-  const handleSubmit = (values) => {
-    console.log("Form submitted", values);
-    addBlog(values);
-    form.resetFields();
   };
   return (
     <>
@@ -41,7 +24,7 @@ export default function InputField() {
           marginTop: "20px",
           backgroundColor: "teal",
         }}>
-        <Form form={form} onFinish={handleSubmit}>
+        <Form form={form} onFinish={updateBlog}>
           <Row>
             <Col span={24}>
               <Form.Item name="title">

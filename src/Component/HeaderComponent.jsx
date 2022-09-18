@@ -1,14 +1,4 @@
-import {
-  Button,
-  Card,
-  Col,
-  Divider,
-  Form,
-  Input,
-  Menu,
-  Row,
-  Typography,
-} from "antd";
+import { Button, Card, Col, Divider, Form, Input, Menu, Row, Typography } from "antd";
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import InputField from "../Shared/InputField";
@@ -26,10 +16,10 @@ export default function HeaderComponent() {
         style={{
           borderRadius: "20px",
           padding: "10px",
-          marginTop: "10px",
+          paddingTop: "0px",
+          top: "0px",
           backgroundColor: "teal",
-        }}
-      >
+        }}>
         <Row justify="center">
           <Title level={2}>Blog - Json placeholder API</Title>
         </Row>

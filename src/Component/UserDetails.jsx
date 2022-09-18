@@ -2,17 +2,18 @@ import { Card, Col, Row, Tag, Typography } from "antd";
 import React, { useContext } from "react";
 import { useParams } from "react-router-dom";
 import InputField from "../Shared/InputField";
+import UpdateInputField from "../Shared/UpdateInputField";
 import jsonContext from "../Utilities/Context";
-import Blog from "./Blog";
+import UserBlog from "./UserBlog";
 
 const { Title, Text } = Typography;
 
 export default function UserDetails() {
-  const { users, blog } = useContext(jsonContext);
+  const { users, blog, edit, setedit } = useContext(jsonContext);
   const { userId } = useParams();
   const user = users.find((el) => el.userId !== userId);
   const blogs = blog.filter((item) => item.userId === Number(userId));
-  console.log(blogs);
+
   return (
     <Card>
       <Row
@@ -20,16 +21,20 @@ export default function UserDetails() {
         style={{
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
           backgroundColor: "lightgray",
           borderRadius: "5px",
-        }}
-      >
+          padding: "10px",
+        }}>
         <Col xs={24} md={16} lg={16}>
-          <InputField />
+          {edit ? <UpdateInputField /> : <InputField />}
         </Col>
         <Col xs={24} md={8} lg={8}>
-          <Card style={{ borderRadius: "25px", backgroundColor: "lightGray" }}>
+          <Card
+            style={{
+              borderRadius: "25px",
+              backgroundColor: "lightGray",
+              margin: "10px",
+            }}>
             <Row justify="end">
               <Tag color="cyan">{user?.username}</Tag>
             </Row>
@@ -47,7 +52,7 @@ export default function UserDetails() {
       <Row>
         {blogs.map((el) => (
           <Col key={el.id} xs={24} md={12} lg={12}>
-            <Blog blog={el} />
+            <UserBlog blog={el} />
           </Col>
         ))}
       </Row>

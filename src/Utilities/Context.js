@@ -18,16 +18,13 @@ export const JsonProvider = ({ children }) => {
       .then((response) => response.json())
       .then((data) => setUsers(data));
   };
+  const [edit, setedit] = useState(false);
   useEffect(() => {
     getBlogs();
     getUsers();
   }, []);
 
-  return (
-    <jsonContext.Provider value={{ blog, users }}>
-      {children}
-    </jsonContext.Provider>
-  );
+  return <jsonContext.Provider value={{ blog, users, edit, setedit }}>{children}</jsonContext.Provider>;
 };
 
 export default jsonContext;

@@ -6,18 +6,17 @@ const { Title, Text } = Typography;
 export default function Blog({ blog, name }) {
   // console.log(name);
   return (
-    <Card style={{ borderRadius: "25px", height: "200px" }}>
+    <Card style={{ borderRadius: "25px", height: "200px", margin: "10px" }}>
       <Title
         level={4}
         style={{
           color: "teal",
           height: "30px",
-          width: "100%",
+
           whiteSpace: "nowrap",
           overflow: "hidden",
-          texOverflow: "ellipsis",
-        }}
-      >
+          textOverflow: "ellipsis",
+        }}>
         {blog.body}
       </Title>
       <Divider>By {name}</Divider>
