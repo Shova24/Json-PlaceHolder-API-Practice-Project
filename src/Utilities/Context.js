@@ -19,6 +19,7 @@ export const JsonProvider = ({ children }) => {
       .then((data) => setUsers(data));
   };
   const [edit, setedit] = useState(false);
+
   useEffect(() => {
     getBlogs();
     getUsers();

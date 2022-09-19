@@ -5,15 +5,18 @@ import jsonContext from "../Utilities/Context";
 const { TextArea } = Input;
 export default function UpdateInputField() {
   const { userId } = useParams();
-  const { blog } = useContext(jsonContext);
+  const { blog, edit } = useContext(jsonContext);
   console.log(userId);
   const [form] = Form.useForm();
+  const editBlog = (item) => {
+    console.log(item);
+  };
   const updateBlog = () => {
     form.setFieldsValue = {
-      title: "set something meaningless",
+      title: item.title,
       body: "set something meaningless",
     };
-    console.log("edit  : ", form);
+    console.log("edit  : ", item.title);
   };
   return (
     <>
@@ -24,7 +27,7 @@ export default function UpdateInputField() {
           marginTop: "20px",
           backgroundColor: "teal",
         }}>
-        <Form form={form} onFinish={updateBlog}>
+        <Form form={form} onFinish={() => updateBlog}>
           <Row>
             <Col span={24}>
               <Form.Item name="title">
@@ -38,7 +41,7 @@ export default function UpdateInputField() {
             </Col>
           </Row>
           <Row justify="end">
-            <Button htmlType="submit">Add Blog</Button>
+            <Button htmlType="submit">Update Blog</Button>
           </Row>
         </Form>
       </Card>

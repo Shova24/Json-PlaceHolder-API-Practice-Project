@@ -26,7 +26,7 @@ export default function UserDetails() {
           padding: "10px",
         }}>
         <Col xs={24} md={16} lg={16}>
-          {edit ? <UpdateInputField /> : <InputField />}
+          {edit ? <UpdateInputField item={blog} /> : <InputField />}
         </Col>
         <Col xs={24} md={8} lg={8}>
           <Card

@@ -8,7 +8,7 @@ const { Title } = Typography;
 export default function UserBlog({ blog }) {
   const { edit, setedit } = useContext(jsonContext);
   const updateItem = (blog) => {
-    console.log(blog);
+    // console.log(blog);
     setedit(true);
   };
   return (
